@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://tygr.azurewebsites.net/projects/pihole/</loc>
+    <lastmod>2017-03-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tygr.azurewebsites.net/projects/projects/</loc>
+    <lastmod>2017-03-05T20:29:37-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tygr.azurewebsites.net/projects/sidehustle/</loc>
+    <lastmod>2017-03-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tygr.azurewebsites.net/about/</loc>
+    <lastmod>2017-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tygr.azurewebsites.net/blog/creating-this-site/</loc>
+    <lastmod>2017-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tygr.azurewebsites.net/projects/mpd/</loc>
+    <lastmod>2017-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tygr.azurewebsites.net/projects/xmas/</loc>
+    <lastmod>2017-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tygr.azurewebsites.net/blog/</loc>
+    <lastmod>2017-03-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tygr.azurewebsites.net/home/</loc>
+  </url>
+  
+  <url>
+    <loc>https://tygr.azurewebsites.net/license/</loc>
+  </url>
+  
+  <url>
+    <loc>https://tygr.azurewebsites.net/tags/projects/</loc>
+    <lastmod>2017-03-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tygr.azurewebsites.net/projects/</loc>
+    <lastmod>2017-03-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tygr.azurewebsites.net/</loc>
+    <lastmod>2017-03-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tygr.azurewebsites.net/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

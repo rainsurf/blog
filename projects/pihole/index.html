@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="Test blog">
+
+
+<meta property="twitter:title" content="Pi-hole Experiment">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:image" content="https://tygr.azurewebsites.net/img/logo.jpg">
+
+<meta property="twitter:description" content="Pi-hole on Azure Virtual Machine">
+
+<title>
+
+
+     TYGR - Pi-hole Experiment 
+
+</title>
+<link rel="canonical" href="https://tygr.azurewebsites.net/projects/pihole/">
+
+
+<link rel="stylesheet" href="https://tygr.azurewebsites.net/css/main.v0.9.0.css">
+<link rel="stylesheet" href="https://tygr.azurewebsites.net/css/ionicons.min.css">
+
+
+  <link rel="stylesheet" href="https://tygr.azurewebsites.net/css/highlight.min.css">
+
+
+
+  <link rel="stylesheet" href="https://tygr.azurewebsites.net/css/progressively.min.css">
+
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://tygr.azurewebsites.net/img/logo.jpg"
+
+>
+
+
+
+
+</head>
+
+
+<body>
+
+
+<section class="header">
+
+    <div class="container">
+        <a href="https://tygr.azurewebsites.net/"><img class="logo" src="https://tygr.azurewebsites.net/img/logo.jpg" alt="logo" /></a>
+        <div class="content">
+            <a href="https://tygr.azurewebsites.net/"><div class="name"><h1>TYGR</h1></div></a>
+            <nav>
+                <ul>
+                    
+                        <a href="https://tygr.azurewebsites.net/blog/"><li>Blog</li></a>
+                    
+                    
+                        
+                    
+                        
+                            
+                        
+                    
+                        
+                            
+                            <a href="https://tygr.azurewebsites.net/projects"><li>projects</li></a>
+                            
+                        
+                    
+                    
+                        
+                            <a href="https://tygr.azurewebsites.net/about/"><li>About</li></a>
+                        
+                    
+                        
+                    
+                        
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="main">
+    <div class="container">
+        <div class="content">
+            <div class="page-heading">
+
+    Pi-hole Experiment
+
+</div>
+
+            <div class="markdown">
+                
+    
+    
+
+<h1 id="pi-hole-on-azure-virtual-machine">Pi-hole on Azure Virtual Machine</h1>
+
+<h2 id="what-s-that">What&rsquo;s that</h2>
+
+<p>I regularly read <a href="https://news.ycombinator.com/news">HackerNews</a> and today I came across <a href="http://gomez.wtf/set-up-a-cheap-cloud-hosted-adblocker-in-an-hour-for-2-50-a-month/">an article about a guy who setup his on cloud hosted adblocking DNS server</a>.</p>
+
+<p>I really don&rsquo;t know anything about Linux and therefore some of the article was a bit technical for me, but I wanted to see if I could get this up and working on Azure.</p>
+
+<p><strong>Goal:</strong> Get <a href="https://pi-hole.net/?v=7516fd43adaa">Pi-hole</a> working on an Azure VM and replace my home internet DNS server with it.</p>
+
+<h3 id="setup-process">Setup Process</h3>
+
+<p>I had to setup and configure a VM in Azure.</p>
+
+<ol>
+<li>Setup a new compute resource using Ubunto Server 16.04 TLS.
+
+<ul>
+<li>This was the only Linux distribution Azure offers that&rsquo;s compatible with Pi-hole.</li>
+</ul></li>
+<li>Install PuTTy to generate a SSH public and private key to access the survey.</li>
+<li>Ensure the VM has a static IP address when you are setting it up.
+
+<ul>
+<li>This part caught me a few times as the VM settings displays a message that is confusing when you choose &lsquo;Static&rsquo; instead of &lsquo;Dynamic.&rsquo; I ended up redeploying the VM multiple times trying to resolve the message before ultimately ignoring it because it seemed to not matter.</li>
+<li>The message was &ldquo;<em>This static public IP address is associated to the IP configuration &lsquo;ipconfig1&rsquo;, in the network interface &lsquo;nameofmyazureresourcehere&rsquo;. You must dissociate it from the network interface before changing its assignment.</em>&ldquo;</li>
+</ul></li>
+<li>Configure the firewall rules to accept inbound HTTP traffic for the Dashboard and admin portal and DNS traffic to block all the ads.</li>
+<li>Connect to the server using PuTTy and install the Pi-hole.
+
+<ul>
+<li>I apparently did this in a very risky way, more below.</li>
+</ul></li>
+<li>Connect to my router and change the DNS server the Azure VM I setup.</li>
+</ol>
+
+<h3 id="results">Results</h3>
+
+<p>I was a little nervous switching the DNS server as we live in a mother-in-law and use our extremely generous landlord&rsquo;s internet. But I knew I could switch it back very quickly so the risk was low.</p>
+
+<p>Pi-hole is amazing. It really works. Ads are blocked not just in your browser, but across any other applications in your system.</p>
+
+<h3 id="open-items">Open Items</h3>
+
+<p>Some things I want to figure out include:</p>
+
+<ul>
+<li>Add picutres and more details to this post.</li>
+<li>I piped from curl to bash on root which apparently is very risky and not reccomended.
+
+<ul>
+<li><em>Action:</em> Undersatnd what this means and setup a non-root account for a future redeployment or update.</li>
+</ul></li>
+<li>I want to more specifically restrict access to the VM, but I understand Comcast using Dynamic IPs and I&rsquo;m not sure how to add the potential range of addresses for my speicific account and I didn&rsquo;t want to take the risk of my IP changing and then the internet going down or not working.</li>
+<li>Figure out how to make it work with my phone&rsquo;s data plan without using VPN.
+
+<ul>
+<li>Currently using &lsquo;DNS Changer&rsquo; app for Android which makes this easy.</li>
+</ul></li>
+</ul>
+
+<h3 id="resources">Resources:</h3>
+
+<p>To be updated.</p>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+<section class="footer">
+    <div class="container">
+        <div class="copyright">
+
+        
+            <a href="https://tygr.azurewebsites.net/license">Copyright © 2017 Tyler Gray</a>
+        
+
+        </div>
+        <div class="icons">
+
+        
+
+        
+
+        
+
+        
+
+        
+            <a href="https://tygr.azurewebsites.net/index.xml">
+                <i class="icon ion-social-rss larger" title="rss"></i>
+            </a>
+        
+
+        </div>
+    </div>
+</section>
+
+
+  <script src="https://tygr.azurewebsites.net/js/highlight.min.js" defer></script>
+  
+
+
+
+  <script src="https://tygr.azurewebsites.net/js/progressively.min.js" defer></script>
+
+
+<script>
+  window.onload = function() {
+    
+      hljs.initHighlighting();
+    
+    
+      progressively.init({delay: 30, throttle: 50});
+    
+  };
+</script>
+
+</body>
+</html>
+

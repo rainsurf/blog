@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on TYGR</title>
+    <link>https://tygr.azurewebsites.net/tags/projects/index.xml</link>
+    <description>Recent content in Projects on TYGR</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>Copyright © 2017 Tyler Gray</copyright>
+    <atom:link href="https://tygr.azurewebsites.net/tags/projects/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Pi-hole Experiment</title>
+      <link>https://tygr.azurewebsites.net/projects/pihole/</link>
+      <pubDate>Sun, 12 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://tygr.azurewebsites.net/projects/pihole/</guid>
+      <description>
+
+&lt;h1 id=&#34;pi-hole-on-azure-virtual-machine&#34;&gt;Pi-hole on Azure Virtual Machine&lt;/h1&gt;
+
+&lt;h2 id=&#34;what-s-that&#34;&gt;What&amp;rsquo;s that&lt;/h2&gt;
+
+&lt;p&gt;I regularly read &lt;a href=&#34;https://news.ycombinator.com/news&#34;&gt;HackerNews&lt;/a&gt; and today I came across &lt;a href=&#34;http://gomez.wtf/set-up-a-cheap-cloud-hosted-adblocker-in-an-hour-for-2-50-a-month/&#34;&gt;an article about a guy who setup his on cloud hosted adblocking DNS server&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I really don&amp;rsquo;t know anything about Linux and therefore some of the article was a bit technical for me, but I wanted to see if I could get this up and working on Azure.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Goal:&lt;/strong&gt; Get &lt;a href=&#34;https://pi-hole.net/?v=7516fd43adaa&#34;&gt;Pi-hole&lt;/a&gt; working on an Azure VM and replace my home internet DNS server with it.&lt;/p&gt;
+
+&lt;h3 id=&#34;setup-process&#34;&gt;Setup Process&lt;/h3&gt;
+
+&lt;p&gt;I had to setup and configure a VM in Azure.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Setup a new compute resource using Ubunto Server 16.04 TLS.
+
+&lt;ul&gt;
+&lt;li&gt;This was the only Linux distribution Azure offers that&amp;rsquo;s compatible with Pi-hole.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Install PuTTy to generate a SSH public and private key to access the survey.&lt;/li&gt;
+&lt;li&gt;Ensure the VM has a static IP address when you are setting it up.
+
+&lt;ul&gt;
+&lt;li&gt;This part caught me a few times as the VM settings displays a message that is confusing when you choose &amp;lsquo;Static&amp;rsquo; instead of &amp;lsquo;Dynamic.&amp;rsquo; I ended up redeploying the VM multiple times trying to resolve the message before ultimately ignoring it because it seemed to not matter.&lt;/li&gt;
+&lt;li&gt;The message was &amp;ldquo;&lt;em&gt;This static public IP address is associated to the IP configuration &amp;lsquo;ipconfig1&amp;rsquo;, in the network interface &amp;lsquo;nameofmyazureresourcehere&amp;rsquo;. You must dissociate it from the network interface before changing its assignment.&lt;/em&gt;&amp;ldquo;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Configure the firewall rules to accept inbound HTTP traffic for the Dashboard and admin portal and DNS traffic to block all the ads.&lt;/li&gt;
+&lt;li&gt;Connect to the server using PuTTy and install the Pi-hole.
+
+&lt;ul&gt;
+&lt;li&gt;I apparently did this in a very risky way, more below.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Connect to my router and change the DNS server the Azure VM I setup.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;results&#34;&gt;Results&lt;/h3&gt;
+
+&lt;p&gt;I was a little nervous switching the DNS server as we live in a mother-in-law and use our extremely generous landlord&amp;rsquo;s internet. But I knew I could switch it back very quickly so the risk was low.&lt;/p&gt;
+
+&lt;p&gt;Pi-hole is amazing. It really works. Ads are blocked not just in your browser, but across any other applications in your system.&lt;/p&gt;
+
+&lt;h3 id=&#34;open-items&#34;&gt;Open Items&lt;/h3&gt;
+
+&lt;p&gt;Some things I want to figure out include:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Add picutres and more details to this post.&lt;/li&gt;
+&lt;li&gt;I piped from curl to bash on root which apparently is very risky and not reccomended.
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Action:&lt;/em&gt; Undersatnd what this means and setup a non-root account for a future redeployment or update.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;I want to more specifically restrict access to the VM, but I understand Comcast using Dynamic IPs and I&amp;rsquo;m not sure how to add the potential range of addresses for my speicific account and I didn&amp;rsquo;t want to take the risk of my IP changing and then the internet going down or not working.&lt;/li&gt;
+&lt;li&gt;Figure out how to make it work with my phone&amp;rsquo;s data plan without using VPN.
+
+&lt;ul&gt;
+&lt;li&gt;Currently using &amp;lsquo;DNS Changer&amp;rsquo; app for Android which makes this easy.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;resources&#34;&gt;Resources:&lt;/h3&gt;
+
+&lt;p&gt;To be updated.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Side Hustle 0.1</title>
+      <link>https://tygr.azurewebsites.net/projects/sidehustle/</link>
+      <pubDate>Mon, 06 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://tygr.azurewebsites.net/projects/sidehustle/</guid>
+      <description>
+
+&lt;p&gt;&lt;em&gt;This page will be updated regularly as we make progress on our side hustle.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;side-hustle-progress&#34;&gt;Side Hustle Progress&lt;/h1&gt;
+
+&lt;h2 id=&#34;branding-and-domain-name-registration&#34;&gt;Branding and Domain Name Registration&lt;/h2&gt;
+
+&lt;p&gt;Here are some of the best resources I&amp;rsquo;ve found when it comes to claiming your little piece of the internet.&lt;/p&gt;
+
+&lt;h3 id=&#34;check-names&#34;&gt;Check Names:&lt;/h3&gt;
+
+&lt;p&gt;Check the availability of your domain name and associated social media usernames and everything else you can image:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://namechk.com/&#34;&gt;NameChk&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://knowem.com/&#34;&gt;KnowEm&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;research-top-domains&#34;&gt;Research Top Domains:&lt;/h3&gt;
+
+&lt;p&gt;Research popularity of domains.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://domaintyper.com/top-websites&#34;&gt;DomainTyper&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://siterankdata.com/show/extension/io&#34;&gt;SiteRAnkData&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;find-domain-host&#34;&gt;Find Domain Host:&lt;/h3&gt;
+
+&lt;p&gt;Find the best price on the domain you want:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://tld-list.com/&#34;&gt;TLD-List&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.domcomp.com/&#34;&gt;DopmComp&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;web-site-creators&#34;&gt;Web Site Creators:&lt;/h3&gt;
+
+&lt;p&gt;Sites to quickly and easily design your webiste:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.dudamobile.com/&#34;&gt;DudaMobile&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.wix.com/&#34;&gt;Wix&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.squarespace.com/&#34;&gt;SquareSpace&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.shopify.com/&#34;&gt;Shopify&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Microsoft Professional Degree: Data Science</title>
+      <link>https://tygr.azurewebsites.net/projects/mpd/</link>
+      <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://tygr.azurewebsites.net/projects/mpd/</guid>
+      <description>&lt;p&gt;To log my experience taking the Microsoft Professional Degree in Data Science.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Xmas 2014 - Puzzle site for my wife</title>
+      <link>https://tygr.azurewebsites.net/projects/xmas/</link>
+      <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://tygr.azurewebsites.net/projects/xmas/</guid>
+      <description>&lt;p&gt;I like puzzles. A lot. For Christmas 2014 I decided to make a website for my now wife which contained a few puzzles which when solved would reveal her Christmas present that year.&lt;/p&gt;
+
+&lt;p&gt;The puzzle is &lt;a href=&#34;http://tygr711.net/xmas2014/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

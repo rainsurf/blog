@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on TYGR</title>
+    <link>https://tygr.azurewebsites.net/blog/index.xml</link>
+    <description>Recent content in Blog on TYGR</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>Copyright © 2017 Tyler Gray</copyright>
+    <lastBuildDate>Sun, 05 Mar 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://tygr.azurewebsites.net/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Creating This Site</title>
+      <link>https://tygr.azurewebsites.net/blog/creating-this-site/</link>
+      <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://tygr.azurewebsites.net/blog/creating-this-site/</guid>
+      <description>
+
+&lt;h2 id=&#34;step-0-inspiration&#34;&gt;Step 0: Inspiration&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;I&amp;rsquo;ve always wanted to have my own blog or site.&lt;/strong&gt; But I never really liked the idea of using a service like Medium or Wordpress or Ghost. I wanted my site to be my &amp;ldquo;own.&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;I wanted to dip my toe in web development ocean with the hope of one day scuba diving in it. But I needed inspiration. The site that inspired me on is linked on the about section. I was browsing &lt;a href=&#34;https://news.ycombinator.com/&#34;&gt;HackerNews&lt;/a&gt; (&lt;em&gt;the exact article is linked in the &amp;lsquo;About&amp;rsquo; section&lt;/em&gt;), came across an interesting article about a face-replacing slack bot, and was simultaneously struck by the simple and minimal design of the blog.&lt;/p&gt;
+
+&lt;p&gt;And from there it snowballed as I rapidly tried to understand:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;What is Hugo?
+
+&lt;ul&gt;
+&lt;li&gt;Oh, it&amp;rsquo;s a static web site engine.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;What is a static website engine?
+
+&lt;ul&gt;
+&lt;li&gt;I don&amp;rsquo;t totally understand yet, but I will.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Is Hugo the best static website engine for me?
+
+&lt;ul&gt;
+&lt;li&gt;Yes, good enough to start. One of the most simple to use.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;How can I create my own Hugo site on Azure?
+
+&lt;ul&gt;
+&lt;li&gt;Let&amp;rsquo;s &amp;ldquo;Google&amp;rdquo; it. Oh &lt;a href=&#34;http://b.mfriedrich.cloud/blog/2017/01/21/hugo-in-azure-blob-storage.html&#34;&gt;this guy&lt;/a&gt; did it using Azure Blob Storage.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;What is Azure Blog Storage?
+
+&lt;ul&gt;
+&lt;li&gt;I don&amp;rsquo;t totally understand yet, but I will.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Ok, Azure Blog Storage has too many compatibility issues wiht Hugo and I don&amp;rsquo;t want to work through them right now, what else can I use to host?
+
+&lt;ul&gt;
+&lt;li&gt;I could just use GitHub Pages, but I want to learn more about Azure. Ok, I will use an Azure Web App.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And&amp;hellip; here we are. There &lt;del&gt;are a few&lt;/del&gt; is a shit ton of other things that I will need to learn more about, but for now I am satisfied with figuring out the basics and hacking it together.&lt;/p&gt;
+
+&lt;h2 id=&#34;how-i-feel-right-now&#34;&gt;How I Feel Right Now&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Learning and creating something - no matter how small - feels good!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;../../img/yaywebsite.gif&#34; alt=&#34;image&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;resources&#34;&gt;Resources&lt;/h2&gt;
+
+&lt;p&gt;These are some resources that have helped me.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet&#34;&gt;Markup Guide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://alternative.to&#34;&gt;Alteranative.to&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gohugo.io/overview/quickstart/&#34;&gt;Hugo Quick Start&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gohugo.io/tutorials/installing-on-windows/&#34;&gt;Hugo - Installing on Windows&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gohugo.io/themes/installing/&#34;&gt;Hugo - Installing Themes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.staticgen.com/&#34;&gt;StaticGen - List of Static Web Site Generators&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;tools-i-m-currently-using&#34;&gt;Tools I&amp;rsquo;m Currently Using&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Visual Studio Code&lt;/li&gt;
+&lt;li&gt;SourceTree&lt;/li&gt;
+&lt;li&gt;BitBucket&lt;/li&gt;
+&lt;li&gt;Azure Web Apps&lt;/li&gt;
+&lt;li&gt;Hugo&lt;/li&gt;
+&lt;li&gt;ConEmu&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;to-learn-list&#34;&gt;To Learn List&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Efficient version control&lt;/li&gt;
+&lt;li&gt;How does a static website generator really work?&lt;/li&gt;
+&lt;li&gt;What is Azure Blob Storage?&lt;/li&gt;
+&lt;li&gt;How do I optimize my current toolset?&lt;/li&gt;
+&lt;li&gt;How do I make publishing as automated as possible?&lt;/li&gt;
+&lt;li&gt;How do I know what parameters are available to me in Hugo (e.g. I can easily create a Twitter link, but not a Facebook or LinkedIn one)?&lt;/li&gt;
+&lt;li&gt;So much more!&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

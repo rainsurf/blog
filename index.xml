@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TYGR</title>
+    <link>https://tygr.azurewebsites.net/index.xml</link>
+    <description>Recent content on TYGR</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>Copyright © 2017 Tyler Gray</copyright>
+    <lastBuildDate>Sun, 12 Mar 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://tygr.azurewebsites.net/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Pi-hole Experiment</title>
+      <link>https://tygr.azurewebsites.net/projects/pihole/</link>
+      <pubDate>Sun, 12 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://tygr.azurewebsites.net/projects/pihole/</guid>
+      <description>
+
+&lt;h1 id=&#34;pi-hole-on-azure-virtual-machine&#34;&gt;Pi-hole on Azure Virtual Machine&lt;/h1&gt;
+
+&lt;h2 id=&#34;what-s-that&#34;&gt;What&amp;rsquo;s that&lt;/h2&gt;
+
+&lt;p&gt;I regularly read &lt;a href=&#34;https://news.ycombinator.com/news&#34;&gt;HackerNews&lt;/a&gt; and today I came across &lt;a href=&#34;http://gomez.wtf/set-up-a-cheap-cloud-hosted-adblocker-in-an-hour-for-2-50-a-month/&#34;&gt;an article about a guy who setup his on cloud hosted adblocking DNS server&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I really don&amp;rsquo;t know anything about Linux and therefore some of the article was a bit technical for me, but I wanted to see if I could get this up and working on Azure.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Goal:&lt;/strong&gt; Get &lt;a href=&#34;https://pi-hole.net/?v=7516fd43adaa&#34;&gt;Pi-hole&lt;/a&gt; working on an Azure VM and replace my home internet DNS server with it.&lt;/p&gt;
+
+&lt;h3 id=&#34;setup-process&#34;&gt;Setup Process&lt;/h3&gt;
+
+&lt;p&gt;I had to setup and configure a VM in Azure.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Setup a new compute resource using Ubunto Server 16.04 TLS.
+
+&lt;ul&gt;
+&lt;li&gt;This was the only Linux distribution Azure offers that&amp;rsquo;s compatible with Pi-hole.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Install PuTTy to generate a SSH public and private key to access the survey.&lt;/li&gt;
+&lt;li&gt;Ensure the VM has a static IP address when you are setting it up.
+
+&lt;ul&gt;
+&lt;li&gt;This part caught me a few times as the VM settings displays a message that is confusing when you choose &amp;lsquo;Static&amp;rsquo; instead of &amp;lsquo;Dynamic.&amp;rsquo; I ended up redeploying the VM multiple times trying to resolve the message before ultimately ignoring it because it seemed to not matter.&lt;/li&gt;
+&lt;li&gt;The message was &amp;ldquo;&lt;em&gt;This static public IP address is associated to the IP configuration &amp;lsquo;ipconfig1&amp;rsquo;, in the network interface &amp;lsquo;nameofmyazureresourcehere&amp;rsquo;. You must dissociate it from the network interface before changing its assignment.&lt;/em&gt;&amp;ldquo;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Configure the firewall rules to accept inbound HTTP traffic for the Dashboard and admin portal and DNS traffic to block all the ads.&lt;/li&gt;
+&lt;li&gt;Connect to the server using PuTTy and install the Pi-hole.
+
+&lt;ul&gt;
+&lt;li&gt;I apparently did this in a very risky way, more below.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Connect to my router and change the DNS server the Azure VM I setup.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;results&#34;&gt;Results&lt;/h3&gt;
+
+&lt;p&gt;I was a little nervous switching the DNS server as we live in a mother-in-law and use our extremely generous landlord&amp;rsquo;s internet. But I knew I could switch it back very quickly so the risk was low.&lt;/p&gt;
+
+&lt;p&gt;Pi-hole is amazing. It really works. Ads are blocked not just in your browser, but across any other applications in your system.&lt;/p&gt;
+
+&lt;h3 id=&#34;open-items&#34;&gt;Open Items&lt;/h3&gt;
+
+&lt;p&gt;Some things I want to figure out include:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Add picutres and more details to this post.&lt;/li&gt;
+&lt;li&gt;I piped from curl to bash on root which apparently is very risky and not reccomended.
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Action:&lt;/em&gt; Undersatnd what this means and setup a non-root account for a future redeployment or update.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;I want to more specifically restrict access to the VM, but I understand Comcast using Dynamic IPs and I&amp;rsquo;m not sure how to add the potential range of addresses for my speicific account and I didn&amp;rsquo;t want to take the risk of my IP changing and then the internet going down or not working.&lt;/li&gt;
+&lt;li&gt;Figure out how to make it work with my phone&amp;rsquo;s data plan without using VPN.
+
+&lt;ul&gt;
+&lt;li&gt;Currently using &amp;lsquo;DNS Changer&amp;rsquo; app for Android which makes this easy.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;resources&#34;&gt;Resources:&lt;/h3&gt;
+
+&lt;p&gt;To be updated.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Projects</title>
+      <link>https://tygr.azurewebsites.net/projects/projects/</link>
+      <pubDate>Sun, 05 Mar 2017 20:29:37 -0700</pubDate>
+      
+      <guid>https://tygr.azurewebsites.net/projects/projects/</guid>
+      <description>&lt;p&gt;This is where some projects I am working on will be documented.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Side Hustle 0.1</title>
+      <link>https://tygr.azurewebsites.net/projects/sidehustle/</link>
+      <pubDate>Mon, 06 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://tygr.azurewebsites.net/projects/sidehustle/</guid>
+      <description>
+
+&lt;p&gt;&lt;em&gt;This page will be updated regularly as we make progress on our side hustle.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;side-hustle-progress&#34;&gt;Side Hustle Progress&lt;/h1&gt;
+
+&lt;h2 id=&#34;branding-and-domain-name-registration&#34;&gt;Branding and Domain Name Registration&lt;/h2&gt;
+
+&lt;p&gt;Here are some of the best resources I&amp;rsquo;ve found when it comes to claiming your little piece of the internet.&lt;/p&gt;
+
+&lt;h3 id=&#34;check-names&#34;&gt;Check Names:&lt;/h3&gt;
+
+&lt;p&gt;Check the availability of your domain name and associated social media usernames and everything else you can image:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://namechk.com/&#34;&gt;NameChk&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://knowem.com/&#34;&gt;KnowEm&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;research-top-domains&#34;&gt;Research Top Domains:&lt;/h3&gt;
+
+&lt;p&gt;Research popularity of domains.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://domaintyper.com/top-websites&#34;&gt;DomainTyper&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://siterankdata.com/show/extension/io&#34;&gt;SiteRAnkData&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;find-domain-host&#34;&gt;Find Domain Host:&lt;/h3&gt;
+
+&lt;p&gt;Find the best price on the domain you want:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://tld-list.com/&#34;&gt;TLD-List&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.domcomp.com/&#34;&gt;DopmComp&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;web-site-creators&#34;&gt;Web Site Creators:&lt;/h3&gt;
+
+&lt;p&gt;Sites to quickly and easily design your webiste:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.dudamobile.com/&#34;&gt;DudaMobile&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.wix.com/&#34;&gt;Wix&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.squarespace.com/&#34;&gt;SquareSpace&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.shopify.com/&#34;&gt;Shopify&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://tygr.azurewebsites.net/about/</link>
+      <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://tygr.azurewebsites.net/about/</guid>
+      <description>&lt;p&gt;This is the first site I&amp;rsquo;ve created from scratch. It&amp;rsquo;s a work in progress and I&amp;rsquo;m primarily using it as a learning tool and to share my experience as I learn data science and web development.&lt;/p&gt;
+
+&lt;p&gt;I was originally inspired by &lt;a href=&#34;http://blog.zikes.me/post/how-i-ruined-office-productivity-with-a-slack-bot/&#34;&gt;Jason Huthinson&amp;rsquo;s blog&lt;/a&gt; after reading his article about a face-replacing slack bot.&lt;/p&gt;
+
+&lt;p&gt;This site was created with &lt;a href=&#34;http://themes.gohugo.io/&#34;&gt;Hugo&lt;/a&gt; and &lt;a href=&#34;http://themes.gohugo.io/cocoa-eh-hugo-theme/&#34;&gt;Cocoa-Eh&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;As my wife and Yoda both say:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Do or do not, there is no try.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Creating This Site</title>
+      <link>https://tygr.azurewebsites.net/blog/creating-this-site/</link>
+      <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://tygr.azurewebsites.net/blog/creating-this-site/</guid>
+      <description>
+
+&lt;h2 id=&#34;step-0-inspiration&#34;&gt;Step 0: Inspiration&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;I&amp;rsquo;ve always wanted to have my own blog or site.&lt;/strong&gt; But I never really liked the idea of using a service like Medium or Wordpress or Ghost. I wanted my site to be my &amp;ldquo;own.&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;I wanted to dip my toe in web development ocean with the hope of one day scuba diving in it. But I needed inspiration. The site that inspired me on is linked on the about section. I was browsing &lt;a href=&#34;https://news.ycombinator.com/&#34;&gt;HackerNews&lt;/a&gt; (&lt;em&gt;the exact article is linked in the &amp;lsquo;About&amp;rsquo; section&lt;/em&gt;), came across an interesting article about a face-replacing slack bot, and was simultaneously struck by the simple and minimal design of the blog.&lt;/p&gt;
+
+&lt;p&gt;And from there it snowballed as I rapidly tried to understand:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;What is Hugo?
+
+&lt;ul&gt;
+&lt;li&gt;Oh, it&amp;rsquo;s a static web site engine.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;What is a static website engine?
+
+&lt;ul&gt;
+&lt;li&gt;I don&amp;rsquo;t totally understand yet, but I will.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Is Hugo the best static website engine for me?
+
+&lt;ul&gt;
+&lt;li&gt;Yes, good enough to start. One of the most simple to use.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;How can I create my own Hugo site on Azure?
+
+&lt;ul&gt;
+&lt;li&gt;Let&amp;rsquo;s &amp;ldquo;Google&amp;rdquo; it. Oh &lt;a href=&#34;http://b.mfriedrich.cloud/blog/2017/01/21/hugo-in-azure-blob-storage.html&#34;&gt;this guy&lt;/a&gt; did it using Azure Blob Storage.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;What is Azure Blog Storage?
+
+&lt;ul&gt;
+&lt;li&gt;I don&amp;rsquo;t totally understand yet, but I will.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Ok, Azure Blog Storage has too many compatibility issues wiht Hugo and I don&amp;rsquo;t want to work through them right now, what else can I use to host?
+
+&lt;ul&gt;
+&lt;li&gt;I could just use GitHub Pages, but I want to learn more about Azure. Ok, I will use an Azure Web App.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And&amp;hellip; here we are. There &lt;del&gt;are a few&lt;/del&gt; is a shit ton of other things that I will need to learn more about, but for now I am satisfied with figuring out the basics and hacking it together.&lt;/p&gt;
+
+&lt;h2 id=&#34;how-i-feel-right-now&#34;&gt;How I Feel Right Now&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Learning and creating something - no matter how small - feels good!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;../../img/yaywebsite.gif&#34; alt=&#34;image&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;resources&#34;&gt;Resources&lt;/h2&gt;
+
+&lt;p&gt;These are some resources that have helped me.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet&#34;&gt;Markup Guide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://alternative.to&#34;&gt;Alteranative.to&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gohugo.io/overview/quickstart/&#34;&gt;Hugo Quick Start&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gohugo.io/tutorials/installing-on-windows/&#34;&gt;Hugo - Installing on Windows&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gohugo.io/themes/installing/&#34;&gt;Hugo - Installing Themes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.staticgen.com/&#34;&gt;StaticGen - List of Static Web Site Generators&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;tools-i-m-currently-using&#34;&gt;Tools I&amp;rsquo;m Currently Using&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Visual Studio Code&lt;/li&gt;
+&lt;li&gt;SourceTree&lt;/li&gt;
+&lt;li&gt;BitBucket&lt;/li&gt;
+&lt;li&gt;Azure Web Apps&lt;/li&gt;
+&lt;li&gt;Hugo&lt;/li&gt;
+&lt;li&gt;ConEmu&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;to-learn-list&#34;&gt;To Learn List&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Efficient version control&lt;/li&gt;
+&lt;li&gt;How does a static website generator really work?&lt;/li&gt;
+&lt;li&gt;What is Azure Blob Storage?&lt;/li&gt;
+&lt;li&gt;How do I optimize my current toolset?&lt;/li&gt;
+&lt;li&gt;How do I make publishing as automated as possible?&lt;/li&gt;
+&lt;li&gt;How do I know what parameters are available to me in Hugo (e.g. I can easily create a Twitter link, but not a Facebook or LinkedIn one)?&lt;/li&gt;
+&lt;li&gt;So much more!&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Microsoft Professional Degree: Data Science</title>
+      <link>https://tygr.azurewebsites.net/projects/mpd/</link>
+      <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://tygr.azurewebsites.net/projects/mpd/</guid>
+      <description>&lt;p&gt;To log my experience taking the Microsoft Professional Degree in Data Science.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Xmas 2014 - Puzzle site for my wife</title>
+      <link>https://tygr.azurewebsites.net/projects/xmas/</link>
+      <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://tygr.azurewebsites.net/projects/xmas/</guid>
+      <description>&lt;p&gt;I like puzzles. A lot. For Christmas 2014 I decided to make a website for my now wife which contained a few puzzles which when solved would reveal her Christmas present that year.&lt;/p&gt;
+
+&lt;p&gt;The puzzle is &lt;a href=&#34;http://tygr711.net/xmas2014/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Home</title>
+      <link>https://tygr.azurewebsites.net/home/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tygr.azurewebsites.net/home/</guid>
+      <description>&lt;p&gt;Hi! Welcome to &lt;strong&gt;TYGR&lt;/strong&gt;. Below is some of the most recent content:&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>License</title>
+      <link>https://tygr.azurewebsites.net/license/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tygr.azurewebsites.net/license/</guid>
+      <description>&lt;p&gt;You can use this page to put a license on the contents of your blog, like so:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The MIT License (MIT)&lt;/p&gt;
+
+&lt;p&gt;Copyright &amp;copy; 2015 Nishanth Shanmugham&lt;a href=&#34;mailto:nishanth.gerrard@gmail.com&#34;&gt;nishanth.gerrard@gmail.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &amp;ldquo;Software&amp;rdquo;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:&lt;/p&gt;
+
+&lt;p&gt;The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.&lt;/p&gt;
+
+&lt;p&gt;THE SOFTWARE IS PROVIDED &amp;ldquo;AS IS&amp;rdquo;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
